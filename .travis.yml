@@ -34,10 +34,10 @@ matrix:
       env: PHPCS=1 DEFAULT=0
 
     - php: hhvm
-      env: HHVM=1 DB=sqlite db_dsn='sqlite:///:memory:'
+      env: HHVM=1 DB=sqlite db_dsn=sqlite:///:memory:
 
     - php: hhvm
-      env: HHVM=1 DB=mysql db_dsn='mysql://travis@0.0.0.0/cakephp_test'
+      env: HHVM=1 DB=mysql db_dsn=mysql://travis@0.0.0.0/cakephp_test
 
   allow_failures:
     - env: CODECOVERAGE=1 DEFAULT=0

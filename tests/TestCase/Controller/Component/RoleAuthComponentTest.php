@@ -14,7 +14,6 @@
 namespace RoleAuth\Test\TestCase\Controller\Component;
 
 use Cake\Controller\ComponentRegistry;
-use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\Http\Response;
 use Cake\Http\ServerRequest;
@@ -47,7 +46,7 @@ class RoleAuthComponentTest extends TestCase
     public function testIsAdminWithDefaults()
     {
         $this->assertTrue(
-            $this->component->isAdmin('Admin'),
+            $this->component->isAdmin(1),
             'Issue with is admin checking string value'
         );
     }

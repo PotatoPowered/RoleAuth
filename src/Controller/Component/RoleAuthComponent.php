@@ -52,20 +52,17 @@ class RoleAuthComponent extends Component
     {
         // do nothing currently
     }
+
     /**
      * Check to see if a user is an administrator
      *
-     * @param int|string $role The role id or role name value to check.
+     * @param int $role_id The role id of the user to check and see if they are an admin.
      * @return bool returns true if the user is an admin
      */
-    public function isAdmin($role)
+    public function isAdmin($role_id)
     {
-        if (!is_numeric($role)) {
-            $role_id = $this->getId($role);
-        } else {
-            $role_id = $role;
-        }
         $adminRole = $this->Roles->findByName($this->_config['admin_role'])->first();
+
         if ($adminRole != null) {
             return $role_id === $adminRole->id;
         }

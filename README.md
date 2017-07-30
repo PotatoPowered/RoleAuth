@@ -11,13 +11,13 @@ The RoleAuth Component aims to make authorization in CakePHP 3.x applications as
 
 Add the component to your composer.json you can do this easily using composer itself.
 ```
-composer require potatopowered/RoleAuth
+composer require potatopowered/role-auth
 ```
 Add the roles table using migrate.
 ```
 bin/cake migrations status -p RoleAuth
 ```
-Load the RoleAuth Component with the other components in the initialize function of your AooController to have it accessible in all controllers.
+Load the RoleAuth Component with the other components in the initialize function of your AppController to have it accessible in all controllers.
 ```
 $this->loadComponent('RoleAuth');
 ```

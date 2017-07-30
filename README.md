@@ -2,7 +2,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE) 
 [![Travis](https://img.shields.io/travis/PotatoPowered/RoleAuth.svg?style=flat-square)](https://travis-ci.org/PotatoPowered/RoleAuth)
 [![Codecov](https://img.shields.io/codecov/c/github/PotatoPowered/RoleAuth.svg?style=flat-square)](https://codecov.io/github/PotatoPowered/RoleAuth)
-[![Packagist](https://img.shields.io/packagist/dt/potatopowered/RoleAuth.svg?style=flat-square)](https://packagist.org/packages/potatopowered/RoleAuth)
+[![Packagist](https://img.shields.io/packagist/dt/potatopowered/role-auth.svg?style=flat-square)](https://packagist.org/packages/potatopowered/role-auth)
 
 ## Description
 The RoleAuth Component aims to make authorization in CakePHP 3.x applications as simple as can be.

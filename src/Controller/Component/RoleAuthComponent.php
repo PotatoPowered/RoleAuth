@@ -42,15 +42,16 @@ class RoleAuthComponent extends Component
     public function initialize(array $config)
     {
         $this->Roles = TableRegistry::get($this->_config['roles_table']);
-        debug($this->Roles);
     }
 
     /**
      * Called before the beforeFilter and after the controllers Initialize function.
      *
      * @param Event $event The startup event
+     * @return void
      */
-    public function startup(Event $event) {
+    public function startup(Event $event)
+    {
         // do nothing currently
     }
 
@@ -62,12 +63,11 @@ class RoleAuthComponent extends Component
      */
     public function isAdmin($role)
     {
-        if(!is_numeric($role)){
-            $role_id = $this->getId('$role');
+        if (!is_numeric($role)) {
+            $role_id = $this->getId($role);
         } else {
             $role_id = $role;
         }
-
         $adminRole = $this->Roles->findByName($this->_config['admin_role'])->first();
 
         if ($adminRole != null) {
@@ -97,7 +97,6 @@ class RoleAuthComponent extends Component
     public function getId($roleName)
     {
         $role = $this->Roles->findByName($roleName)->first();
-        debug($role);
         if ($role != null) {
             return $role->id;
         }

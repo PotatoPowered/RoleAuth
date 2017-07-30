@@ -1,0 +1,46 @@
+{
+  "name": "potatopowered/RoleAuth",
+  "description": "The RoleAuth Component aims to make authorization in CakePHP 3.x applications as simple as can be.",
+  "type": "cakephp-plugin",
+  "keywords": [
+    "RoleAuth",
+    "CakePHP",
+    "Potato Powered Software",
+    "Authorization"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Blake Sutton",
+      "email": "blakes@potatopowered.net",
+      "role": "Lead Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.16",
+    "cakephp/cakephp": "~3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "cakephp/cakephp-codesniffer": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "RoleAuth\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "RoleAuth\\Test\\": "tests"
+    }
+  },
+  "scripts": {
+    "check": [
+      "@test",
+      "@cs-check"
+    ],
+    "cs-check": "vendor/bin/phpcs --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
+    "cs-fix": "vendor/bin/phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
+    "test": "vendor/bin/phpunit --colors=always"
+  }
+}

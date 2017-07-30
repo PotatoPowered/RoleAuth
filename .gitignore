@@ -1,0 +1,11 @@
+# CakePHP 3
+/config/app.php
+tmp/
+vendor/
+logs/
+
+# IDE
+.idea/
+
+# Others
+.DS_Store

@@ -13,13 +13,13 @@
  */
 namespace RoleAuth\Test\TestCase\Controller\Component;
 
-use RoleAuth\Controller\Component\RoleAuthComponent;
 use Cake\Controller\ComponentRegistry;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\Http\Response;
 use Cake\Http\ServerRequest;
 use Cake\TestSuite\TestCase;
+use RoleAuth\Controller\Component\RoleAuthComponent;
 
 class RoleAuthComponentTest extends TestCase
 {

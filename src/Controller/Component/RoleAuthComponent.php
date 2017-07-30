@@ -49,8 +49,10 @@ class RoleAuthComponent extends Component
      * Called before the beforeFilter and after the controllers Initialize function.
      *
      * @param Event $event The startup event
+     * @return void
      */
-    public function startup(Event $event) {
+    public function startup(Event $event)
+    {
         // do nothing currently
     }
 
@@ -62,7 +64,7 @@ class RoleAuthComponent extends Component
      */
     public function isAdmin($role)
     {
-        if(!is_numeric($role)){
+        if (!is_numeric($role)) {
             $role_id = $this->getId('$role');
         } else {
             $role_id = $role;

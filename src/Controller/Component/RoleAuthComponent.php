@@ -12,9 +12,11 @@
  * @license     http://www.opensource.org/licenses/mit-license.php MIT License
  */
 namespace RoleAuth\Controller\Component;
+
 use Cake\Controller\Component;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
+
 /**
  * RoleAuth component
  */
@@ -67,6 +69,7 @@ class RoleAuthComponent extends Component
         if ($adminRole != null) {
             return $role_id === $adminRole->id;
         }
+
         return false;
     }
     /**
@@ -76,6 +79,7 @@ class RoleAuthComponent extends Component
     public function minimumRole($roleName)
     {
         $role = $this->Roles->findByName($roleName)->first();
+
         return $role;
     }
     /**
@@ -90,6 +94,7 @@ class RoleAuthComponent extends Component
         if ($role != null) {
             return $role->id;
         }
+
         return 0;
     }
 }

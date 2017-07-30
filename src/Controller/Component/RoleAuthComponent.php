@@ -12,11 +12,9 @@
  * @license     http://www.opensource.org/licenses/mit-license.php MIT License
  */
 namespace RoleAuth\Controller\Component;
-
 use Cake\Controller\Component;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
-
 /**
  * RoleAuth component
  */
@@ -32,7 +30,6 @@ class RoleAuthComponent extends Component
         'admin_role' => 'Admin',
         'default_role' => 'User'
     ];
-
     /**
      * Initialize the component
      *
@@ -42,9 +39,7 @@ class RoleAuthComponent extends Component
     public function initialize(array $config)
     {
         $this->Roles = TableRegistry::get($this->_config['roles_table']);
-        debug($this->Roles);
     }
-
     /**
      * Called before the beforeFilter and after the controllers Initialize function.
      *
@@ -55,7 +50,6 @@ class RoleAuthComponent extends Component
     {
         // do nothing currently
     }
-
     /**
      * Check to see if a user is an administrator
      *
@@ -65,20 +59,16 @@ class RoleAuthComponent extends Component
     public function isAdmin($role)
     {
         if (!is_numeric($role)) {
-            $role_id = $this->getId('$role');
+            $role_id = $this->getId($role);
         } else {
             $role_id = $role;
         }
-
         $adminRole = $this->Roles->findByName($this->_config['admin_role'])->first();
-
         if ($adminRole != null) {
             return $role_id === $adminRole->id;
         }
-
         return false;
     }
-
     /**
      * @param string $roleName The name to get permission level
      * @return \RoleAuth\Model\Entity\Role The role requested
@@ -86,10 +76,8 @@ class RoleAuthComponent extends Component
     public function minimumRole($roleName)
     {
         $role = $this->Roles->findByName($roleName)->first();
-
         return $role;
     }
-
     /**
      * Get the id of a role by name.
      *
@@ -99,11 +87,9 @@ class RoleAuthComponent extends Component
     public function getId($roleName)
     {
         $role = $this->Roles->findByName($roleName)->first();
-        debug($role);
         if ($role != null) {
             return $role->id;
         }
-
         return 0;
     }
 }

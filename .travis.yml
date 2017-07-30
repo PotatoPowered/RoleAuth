@@ -1,8 +1,6 @@
 language: php
 
 php:
-  - 5.5
-  - 5.6
   - 7.0
 
 sudo: false
@@ -48,7 +46,7 @@ before_script:
   - sh -c "if [ '$HHVM' != '1' ]; then phpenv config-rm xdebug.ini; fi"
   - composer self-update
   - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
-  - composer install --prefer-dist --no-interaction
+  - composer install
 
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test;'; fi"
   

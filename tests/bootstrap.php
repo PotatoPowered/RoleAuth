@@ -87,6 +87,13 @@ ConnectionManager::setConfig('test', [
     'timezone' => 'UTC'
 ]);
 
+try {
+    Configure::load('test_db', 'default', false);
+} catch (\Exception $ex) {
+    // Catch all and do nothing. This way we can not worry
+    // about loading two configs locally and only on travis
+}
+
 Log::setConfig([
     'debug' => [
         'engine' => 'Cake\Log\Engine\FileLog',

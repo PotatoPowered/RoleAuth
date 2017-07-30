@@ -32,7 +32,6 @@ class RoleAuthComponent extends Component
         'admin_role' => 'Admin',
         'default_role' => 'User'
     ];
-
     /**
      * Initialize the component
      *
@@ -43,7 +42,6 @@ class RoleAuthComponent extends Component
     {
         $this->Roles = TableRegistry::get($this->_config['roles_table']);
     }
-
     /**
      * Called before the beforeFilter and after the controllers Initialize function.
      *
@@ -54,7 +52,6 @@ class RoleAuthComponent extends Component
     {
         // do nothing currently
     }
-
     /**
      * Check to see if a user is an administrator
      *
@@ -69,14 +66,12 @@ class RoleAuthComponent extends Component
             $role_id = $role;
         }
         $adminRole = $this->Roles->findByName($this->_config['admin_role'])->first();
-
         if ($adminRole != null) {
             return $role_id === $adminRole->id;
         }
 
         return false;
     }
-
     /**
      * @param string $roleName The name to get permission level
      * @return \RoleAuth\Model\Entity\Role The role requested
@@ -87,7 +82,6 @@ class RoleAuthComponent extends Component
 
         return $role;
     }
-
     /**
      * Get the id of a role by name.
      *

@@ -19,11 +19,11 @@ bin/cake migrations status -p RoleAuth
 ```
 Load the RoleAuth Component with the other components in the initialize function of your AppController to have it accessible in all controllers.
 ```
-$this->loadComponent('RoleAuth');
+$this->loadComponent('RoleAuth.RoleAuth');
 ```
 ### Advanced Load
 ```
-$this->loadComponent('RoleAuth', [
+$this->loadComponent('RoleAuth.RoleAuth', [
   'roles_table' => 'roles',
   'admin_role' => 'Admin',
   'default_role' => 'User'

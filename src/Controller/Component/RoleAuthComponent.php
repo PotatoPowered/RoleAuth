@@ -41,6 +41,7 @@ class RoleAuthComponent extends Component
     public function initialize(array $config)
     {
         $this->Roles = TableRegistry::get($this->_config['roles_table']);
+        $this->Controller = $this->_registry->getController();
     }
     /**
      * Called before the beforeFilter and after the controllers Initialize function.
@@ -93,5 +94,26 @@ class RoleAuthComponent extends Component
         }
 
         return 0;
+    }
+    
+    /**
+     * Set all of the role variables.
+     *
+     * @param array $user The Auth user
+     */
+    public function setRoles($user)
+    {
+        $is_user = ($user) ? true : false;
+        $role_id = ($is_user) ? $user['role_id'] : null;
+        $user_id = ($is_user) ? $user['id'] : null;
+
+        $roles = $this->Roles->find()->toArray();
+
+        foreach($roles as $role) {
+            $this->Controller->set('is_' .Inflector::variable($role->name), ($role->id === $role_id));
+        }
+
+        $this->Controller->set('is_admin', $this->isAdmin($role_id));
+        $this->Controller->set('is_validUser', ($user_id != null));
     }
 }

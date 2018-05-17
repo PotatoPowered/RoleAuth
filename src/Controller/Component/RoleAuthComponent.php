@@ -100,6 +100,7 @@ class RoleAuthComponent extends Component
      * Set all of the role variables.
      *
      * @param array $user The Auth user
+     * @return void
      */
     public function setRoles($user)
     {
@@ -109,8 +110,8 @@ class RoleAuthComponent extends Component
 
         $roles = $this->Roles->find()->toArray();
 
-        foreach($roles as $role) {
-            $this->Controller->set('is_' .Inflector::variable($role->name), ($role->id === $role_id));
+        foreach ($roles as $role) {
+            $this->Controller->set('is_' . Inflector::variable($role->name), ($role->id === $role_id));
         }
 
         $this->Controller->set('is_admin', $this->isAdmin($role_id));

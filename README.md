@@ -30,7 +30,7 @@ $this->loadComponent('RoleAuth.RoleAuth', [
 ]);
 ```
 ## Usage
-*This assumes that you have role_id setup in the user linking to this plugins roles table.*
+*This assumes that you have `role_id` setup in the user linking to this plugins roles table.*
 ### Check if a user is an admin
 To use the RoleAuth component to check if a user is an admin you can make a call as such. The following will check the logged in
 users `role_id` and verify that they are an admin or not. The result is boolean.

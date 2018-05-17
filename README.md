@@ -19,14 +19,32 @@ bin/cake migrations status -p RoleAuth
 ```
 Load the RoleAuth Component with the other components in the initialize function of your AppController to have it accessible in all controllers.
 ```
-$this->loadComponent('RoleAuth');
+$this->loadComponent('RoleAuth.RoleAuth');
 ```
-
+### Advanced Load
+```
+$this->loadComponent('RoleAuth.RoleAuth', [
+  'roles_table' => 'roles',
+  'admin_role' => 'Admin',
+  'default_role' => 'User'
+]);
+```
 ## Usage
-
+*This assumes that you have `role_id` setup in the user linking to this plugins roles table.*
+### Check if a user is an admin
 To use the RoleAuth component to check if a user is an admin you can make a call as such. The following will check the logged in
 users `role_id` and verify that they are an admin or not. The result is boolean.
 ```
 $this->RoleAuth->isAdmin($this->Auth->user('role_id'));
 ```
-This assumes that you have role_id setup in the user linking to this plugins roles table.
+### Check if a user has a specific role
+To use the RoleAuth component to check if a user is a specific role you can make a call as such. The following will check the logged in
+users `role_id` and verify that they have a role or not. The result is boolean.
+```
+$this->RoleAuth->hasRole('YourRole', $this->Auth->user('role_id'));
+```
+### Set all role variables
+To use the RoleAuth component to check the users role and set all role variables in one shot you can make a call as such. The following will check the logged in users `role_id` and verify that they have a role or not. The result is boolean.
+```
+$this->RoleAuth->setRoles($this->Auth->user());
+```

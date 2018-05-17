@@ -116,4 +116,22 @@ class RoleAuthComponent extends Component
         $this->Controller->set('is_admin', $this->isAdmin($role_id));
         $this->Controller->set('is_validUser', ($user_id != null));
     }
+    
+    /**
+     * Check to see if a user has a role
+     *
+     * @param string $name The role name to validate against.
+     * @param int $role_id The role id of the user to check and see if they are an admin.
+     * @return bool returns true if the user has the role
+     */
+    public function hasRole($name, $role_id)
+    {
+        $role = $this->Roles->findByName($name)->first();
+
+        if ($role != null) {
+            return $role_id === $role->id;
+        }
+
+        return false;
+    }
 }

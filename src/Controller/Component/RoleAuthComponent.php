@@ -95,7 +95,7 @@ class RoleAuthComponent extends Component
 
         return 0;
     }
-    
+
     /**
      * Set all of the role variables.
      *
@@ -117,7 +117,7 @@ class RoleAuthComponent extends Component
         $this->Controller->set('is_admin', $this->isAdmin($role_id));
         $this->Controller->set('is_validUser', ($user_id != null));
     }
-    
+
     /**
      * Check to see if a user has a role
      *

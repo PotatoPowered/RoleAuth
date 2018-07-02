@@ -16,6 +16,7 @@ namespace RoleAuth\Controller\Component;
 use Cake\Controller\Component;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
+use Cake\Utility\Inflector;
 
 /**
  * RoleAuth component

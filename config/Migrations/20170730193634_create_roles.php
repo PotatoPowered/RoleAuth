@@ -1,7 +1,7 @@
 <?php
 use Phinx\Migration\AbstractMigration;
 
-class InjectStates extends AbstractMigration
+class CreateRoles extends AbstractMigration
 {
     public function up()
     {
